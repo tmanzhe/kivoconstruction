@@ -19,7 +19,10 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ 
+            duration: 1.2,
+            ease: [0.22, 1, 0.36, 1] // Custom easing for smoother motion
+          }}
           className="relative"
         >
           <motion.h1 
@@ -27,12 +30,12 @@ export default function Home() {
             animate={{
               textShadow: [
                 "0 0 0px rgba(255,255,255,0)",
-                "0 0 20px rgba(255,255,255,0.1)",
+                "0 0 30px rgba(255,255,255,0.15)",
                 "0 0 0px rgba(255,255,255,0)"
               ]
             }}
             transition={{
-              duration: 2,
+              duration: 3,
               repeat: Infinity,
               ease: "easeInOut"
             }}
@@ -40,13 +43,14 @@ export default function Home() {
             {["k", "i", "v", "o", ".", "g", "g"].map((letter, index) => (
               <motion.span
                 key={index}
-                initial={{ y: 100, opacity: 0 }}
+                initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{
-                  delay: index * 0.1,
+                  delay: index * 0.08,
                   type: "spring",
-                  stiffness: 150,
-                  damping: 25,
+                  stiffness: 100,
+                  damping: 20,
+                  mass: 0.8,
                 }}
                 className="inline-block"
               >
@@ -57,9 +61,13 @@ export default function Home() {
         </motion.div>
         
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ 
+            delay: 0.8, 
+            duration: 1,
+            ease: [0.22, 1, 0.36, 1]
+          }}
         >
           <p className="text-xl md:text-2xl text-white/80 mb-4">
             is under construction
@@ -67,9 +75,13 @@ export default function Home() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 1, duration: 0.8 }}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ 
+            delay: 1.2, 
+            duration: 1,
+            ease: [0.22, 1, 0.36, 1]
+          }}
         >
           <p className="text-lg text-white/60">
             stay tuned for more
@@ -77,24 +89,24 @@ export default function Home() {
         </motion.div>
 
         <motion.div
-          className="mt-8 flex justify-center gap-2 mb-6"
+          className="mt-8 flex justify-center gap-3 mb-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
+          transition={{ delay: 1.8 }}
         >
           {[...Array(3)].map((_, i) => (
             <motion.div
               key={i}
-              className="w-2 h-2 bg-white rounded-full"
+              className="w-1.5 h-1.5 bg-white/80 rounded-full"
               animate={{
-                y: [0, -10, 0],
-                scale: [1, 1.2, 1],
+                y: [0, -8, 0],
+                scale: [1, 1.1, 1],
               }}
               transition={{
-                duration: 1.5,
+                duration: 1.2,
                 repeat: Infinity,
-                delay: i * 0.2,
-                ease: "easeInOut"
+                delay: i * 0.15,
+                ease: [0.4, 0, 0.6, 1]
               }}
             />
           ))}
