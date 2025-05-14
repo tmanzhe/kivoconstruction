@@ -149,13 +149,13 @@ export default function BeamsBackground({ className, intensity = "strong", child
   }, [intensity])
 
   return (
-    <div className={cn("relative min-h-screen w-full overflow-hidden bg-neutral-900", className)}>
+    <div className={cn("relative min-h-screen w-full overflow-hidden bg-neutral-800", className)}>
       <canvas ref={canvasRef} className="absolute inset-0" style={{ filter: "blur(15px)" }} />
 
       <motion.div
-        className="absolute inset-0 bg-neutral-800/10"
+        className="absolute inset-0 bg-neutral-700/20"
         animate={{
-          opacity: [0.04, 0.09, 0.04],
+          opacity: [0.08, 0.18, 0.08],
         }}
         transition={{
           duration: 10,

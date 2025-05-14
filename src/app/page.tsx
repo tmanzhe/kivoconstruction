@@ -15,23 +15,26 @@ export default function Home() {
 
   return (
     <BeamsBackground intensity="medium">
-      <div className="text-center px-4 max-w-2xl w-full flex flex-col items-center gap-8 h-screen justify-center">
+      <div className="text-center px-4 max-w-2xl w-full flex flex-col items-center gap-4 py-24 md:py-48 pb-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="relative"
         >
-          <motion.h1
-            className="relative text-5xl sm:text-6xl md:text-8xl font-bold mb-4 tracking-tight break-words leading-tight"
-            style={{
-              background: 'linear-gradient(90deg, #e0e0e0 0%, #ffffff 30%, #b0b0b0 60%, #f5f5f5 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              color: 'transparent',
-              position: 'relative',
-              display: 'inline-block',
+          <motion.h1 
+            className="text-6xl md:text-8xl font-bold mb-2 tracking-tight break-words leading-[1.15] overflow-visible text-transparent bg-clip-text bg-gradient-to-r from-[#e5e7eb] via-white to-[#a3a3a3]"
+            animate={{
+              textShadow: [
+                "0 0 0px rgba(255,255,255,0)",
+                "0 0 20px rgba(255,255,255,0.1)",
+                "0 0 0px rgba(255,255,255,0)"
+              ]
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut"
             }}
           >
             {["k", "i", "v", "o", ".", "g", "g"].map((letter, index) => (
@@ -46,7 +49,6 @@ export default function Home() {
                   damping: 25,
                 }}
                 className="inline-block"
-                style={{ position: 'relative', zIndex: 1 }}
               >
                 {letter}
               </motion.span>
@@ -75,7 +77,7 @@ export default function Home() {
         </motion.div>
 
         <motion.div
-          className="mt-8 flex justify-center gap-2 mb-4"
+          className="mt-8 flex justify-center gap-2 mb-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
